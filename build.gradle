@@ -1,0 +1,33 @@
+buildscript {
+  ext {
+    springBootVersion = '2.5.0'
+  }
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+  }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  implementation "org.springframework.boot:spring-boot-starter-web"
+  compileOnly "org.projectlombok:lombok"
+  testImplementation "org.springframework.boot:spring-boot-starter-test"
+  implementation 'org.hibernate.validator:hibernate-validator:6.1.2.Final'
+  testImplementation 'junit:junit:4.13.2'
+  annotationProcessor 'org.projectlombok:lombok:1.18.12'
+}
